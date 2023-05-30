@@ -2,15 +2,19 @@
   "users": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "user",
+      "password": "password"
     }
   ],
   "products": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
+      "name": "McDog",
+      "description": "A master burger in the spirit of Kod McDog.",
+      "category": "Burger",
+      "price": 5.9,
+      "image": ""
+    },
+    {}
   ]
 }
