@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import WelcomeDisplay from "../components/WelcomeDisplay";
 
 function Home() {
-  return <div></div>;
+  return (
+    <div>
+      <WelcomeDisplay />
+    </div>
+  );
 }
 
 export default Home;

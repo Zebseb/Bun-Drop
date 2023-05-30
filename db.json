@@ -3,7 +3,9 @@
     {
       "id": 1,
       "name": "user",
-      "password": "password"
+      "password": "password",
+      "orders": [],
+      "favourites": []
     }
   ],
   "products": [
@@ -12,9 +14,120 @@
       "name": "McDog",
       "description": "A master burger in the spirit of Kod McDog.",
       "category": "Burger",
+      "price": 4.9,
+      "image": "./public/images/burger-1.png"
+    },
+    {
+      "id": 2,
+      "name": "Bacon & Cheese",
+      "description": "Juicy burger with crispy bacon and three slices of cheddar cheese.",
+      "category": "Burger",
       "price": 5.9,
       "image": ""
     },
-    {}
+    {
+      "id": 3,
+      "name": "Chick-a-Deluxe",
+      "description": "Crispy burger with the finest of chicken fillets and our homemade chili-mayo.",
+      "category": "Burger",
+      "price": 5.5,
+      "image": ""
+    },
+    {
+      "id": 4,
+      "name": "Classic fries",
+      "description": "Crispy burger with the finest of chicken fillets and our homemade chili-mayo.",
+      "category": "Fries",
+      "price": 2.5,
+      "image": ""
+    },
+    {
+      "id": 5,
+      "name": "Loaded fries",
+      "description": "Fatty fries with extra red onion and garlic.",
+      "category": "Fries",
+      "price": 2.9,
+      "image": ""
+    },
+    {
+      "id": 6,
+      "name": "Chili cheese fries",
+      "description": "Our smokin' spicy fries with red chili and fresh jalapeños on top.",
+      "category": "Fries",
+      "price": 3.5,
+      "image": ""
+    },
+    {
+      "id": 7,
+      "name": "Shake a la Cookie & Cream",
+      "description": "A really sweet and refreshening milkshake.",
+      "category": "Milkshakes",
+      "price": 3.8,
+      "image": ""
+    },
+    {
+      "id": 8,
+      "name": "Chocolate Oreo Shake",
+      "description": "The all time selling milkshake with chocolate sauce and oreo bits.",
+      "category": "Milkshakes",
+      "price": 4.0,
+      "image": ""
+    },
+    {
+      "id": 9,
+      "name": "Pear Shake Luxury",
+      "description": "The all time selling milkshake with chocolate sauce and oreo bits.",
+      "category": "Milkshakes",
+      "price": 4.0,
+      "image": ""
+    },
+    {
+      "id": 10,
+      "name": "Sprite",
+      "description": "A deliciously sugary drink.",
+      "category": "Drinks",
+      "price": 2.0,
+      "image": ""
+    },
+    {
+      "id": 11,
+      "name": "Fanta Exotic",
+      "description": "Fanta top-seller with exotic taste.",
+      "category": "Drinks",
+      "price": 2.0,
+      "image": ""
+    },
+    {
+      "id": 12,
+      "name": "Coca-Cola Zero",
+      "description": "Sugarfree Coca-Cola.",
+      "category": "Drinks",
+      "price": 2.0,
+      "image": ""
+    },
+    {
+      "id": 13,
+      "name": "Bearnaise dip",
+      "description": "The perfect partner to your fries.",
+      "category": "Other",
+      "price": 0.9,
+      "image": ""
+    },
+    {
+      "id": 14,
+      "name": "Mozarella Sticks",
+      "description": "Crunchy, fried sticks with creamy mozarella inside.",
+      "category": "Other",
+      "price": 3.2,
+      "image": ""
+    },
+    {
+      "id": 15,
+      "name": "Onion Rings",
+      "description": "Deepfried onion.",
+      "category": "Other",
+      "price": 3.0,
+      "image": ""
+    }
   ]
 }
