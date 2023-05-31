@@ -1,6 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 
 function ProductCard({ product }) {
+  function addToCart() {
+    let cartItems = localStorage.getItem("cartItem");
+    let cartItemToAdd;
+
+    if (!cartItems) {
+      cartItems = [];
+    } else {
+      cartItems = JSON.parse(cartItems);
+      cartItemToAdd = cartItems.find((i) => i.id === product.id);
+    }
+
+    if (cartItemToAdd) {
+      {
+        cartItemToAdd.volume += 1;
+      }
+    } else {
+      cartItems.push({
+        id: product.id,
+        name: product.name,
+        volume: 1,
+      });
+    }
+
+    localStorage.setItem("cartItem", JSON.stringify(cartItems));
+  }
+
   return (
     <div>
       <div className="product-card">
@@ -14,7 +40,9 @@ function ProductCard({ product }) {
         <span>Price: </span>
         <em>{product.price}$</em>
         <div>
-          <button className="add-btn">Add to cart</button>
+          <button className="add-btn" onClick={addToCart}>
+            Add to cart
+          </button>
         </div>
       </div>
     </div>

@@ -57,6 +57,13 @@ a {
   max-width: 200px;
 }
 
+.cart-img {
+  border-radius: 15%;
+  padding: 10px;
+  max-width: 75px;
+  text-align: end;
+}
+
 .add-btn {
   border: none;
   border-radius: 10px;
@@ -150,10 +157,48 @@ a {
   margin: 10px;
 }
 
-.search-icon {
-}
-
 .menu-products {
   display: flex;
   flex-direction: row;
+}
+
+.complete-btn {
+  border: none;
+  border-radius: 10%;
+  padding: 10px;
+  margin-top: 50px;
+  cursor: pointer;
+}
+
+.complete-btn:hover {
+  background-color: gold;
+}
+
+.trash-icon {
+  cursor: pointer;
+}
+
+.checkout-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column > input {
+  width: 200px;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.swish-logo {
+  max-width: 40px;
+}
+
+.card-icon {
+  color: black;
 }
