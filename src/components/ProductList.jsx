@@ -5,6 +5,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     getProducts();
@@ -13,17 +14,40 @@ function ProductList() {
   async function getProducts() {
     await fetch("http://localhost:7001/products")
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        setProducts(data);
+        setFilteredProducts(data);
+      });
+  }
+
+  function handleInput(e) {
+    const searchWord = e.target.value.toLowerCase();
+
+    const tempProducts = [...products].filter((p) => {
+      if (
+        p.name.toLowerCase().includes(searchWord) ||
+        p.category.toLowerCase().includes(searchWord)
+      ) {
+        return true;
+      }
+    });
+
+    setFilteredProducts(tempProducts);
   }
 
   return (
     <div>
-      <div className="center-div">
-        <FontAwesomeIcon icon={faSearch} />
-        <input className="search-bar" type="search" placeholder="Search..." />
+      <div className="center-div input-icon">
+        <FontAwesomeIcon className="search-icon" icon={faSearch} />
+        <input
+          className="search-bar"
+          type="search"
+          placeholder="Search..."
+          onInput={handleInput}
+        />
       </div>
       <div className="grid-container">
-        {products.map((p) => (
+        {filteredProducts.map((p) => (
           <div key={p.id}>
             <ProductCard product={p} />
           </div>
