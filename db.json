@@ -12,10 +12,10 @@
     {
       "id": 1,
       "name": "McDog",
-      "description": "A master burger in the spirit of Kod McDog.",
+      "description": "A master burger in the spirit of Kod McDog. Double beef patty ofcourse!",
       "category": "Burger",
       "price": 4.9,
-      "image": "./public/images/burger-1.png"
+      "image": "./public/images/burger-3.png"
     },
     {
       "id": 2,
@@ -23,7 +23,7 @@
       "description": "Juicy burger with crispy bacon and three slices of cheddar cheese.",
       "category": "Burger",
       "price": 5.9,
-      "image": ""
+      "image": "./public/images/burger-1.png"
     },
     {
       "id": 3,
@@ -31,7 +31,7 @@
       "description": "Crispy burger with the finest of chicken fillets and our homemade chili-mayo.",
       "category": "Burger",
       "price": 5.5,
-      "image": ""
+      "image": "./public/images/burger-2.png"
     },
     {
       "id": 4,
@@ -39,31 +39,31 @@
       "description": "Crispy burger with the finest of chicken fillets and our homemade chili-mayo.",
       "category": "Fries",
       "price": 2.5,
-      "image": ""
+      "image": "./public/images/fries-1.png"
     },
     {
       "id": 5,
       "name": "Loaded fries",
-      "description": "Fatty fries with extra red onion and garlic.",
+      "description": "Fatty fries with extra red onion, garlic and spicy jalapeños.",
       "category": "Fries",
       "price": 2.9,
-      "image": ""
+      "image": "./public/images/chili-cheese-fries.jpg"
     },
     {
       "id": 6,
       "name": "Chili cheese fries",
-      "description": "Our smokin' spicy fries with red chili and fresh jalapeños on top.",
+      "description": "Our smokin' spicy fries with red chili, minced meat and red beans.",
       "category": "Fries",
       "price": 3.5,
-      "image": ""
+      "image": "./public/images/chili-cheese-fries-square-1.jpg"
     },
     {
       "id": 7,
       "name": "Shake a la Cookie & Cream",
-      "description": "A really sweet and refreshening milkshake.",
+      "description": "A really sweet and refreshening milkshake. Chocolate, vanilla and chunky bits.",
       "category": "Milkshakes",
       "price": 3.8,
-      "image": ""
+      "image": "./public/images/chocolate-shake.jpg"
     },
     {
       "id": 8,
@@ -71,15 +71,15 @@
       "description": "The all time selling milkshake with chocolate sauce and oreo bits.",
       "category": "Milkshakes",
       "price": 4.0,
-      "image": ""
+      "image": "./public/images/milkshake-1.png"
     },
     {
       "id": 9,
-      "name": "Pear Shake Luxury",
-      "description": "The all time selling milkshake with chocolate sauce and oreo bits.",
+      "name": "Strawberry Shake Luxury",
+      "description": "Strawberry shake with whipped cream.",
       "category": "Milkshakes",
       "price": 4.0,
-      "image": ""
+      "image": "./public/images/strawberry-shake.jpg"
     },
     {
       "id": 10,
@@ -87,7 +87,7 @@
       "description": "A deliciously sugary drink.",
       "category": "Drinks",
       "price": 2.0,
-      "image": ""
+      "image": "./public/images/soda-1.png"
     },
     {
       "id": 11,
@@ -95,7 +95,7 @@
       "description": "Fanta top-seller with exotic taste.",
       "category": "Drinks",
       "price": 2.0,
-      "image": ""
+      "image": "./public/images/soda-2.png"
     },
     {
       "id": 12,
@@ -103,23 +103,23 @@
       "description": "Sugarfree Coca-Cola.",
       "category": "Drinks",
       "price": 2.0,
-      "image": ""
+      "image": "./public/images/soda-3.png"
     },
     {
       "id": 13,
       "name": "Bearnaise dip",
-      "description": "The perfect partner to your fries.",
+      "description": "The perfect partner to your fries. A Swedish classic!",
       "category": "Other",
       "price": 0.9,
-      "image": ""
+      "image": "./public/images/bea-dip.png"
     },
     {
       "id": 14,
       "name": "Mozarella Sticks",
-      "description": "Crunchy, fried sticks with creamy mozarella inside.",
+      "description": "Crunchy sticks with creamy mozarella inside.",
       "category": "Other",
       "price": 3.2,
-      "image": ""
+      "image": "./public/images/mozzarella-sticks.jpg"
     },
     {
       "id": 15,
@@ -127,7 +127,7 @@
       "description": "Deepfried onion.",
       "category": "Other",
       "price": 3.0,
-      "image": ""
+      "image": "./public/images/onion-rings.jpeg"
     }
   ]
 }

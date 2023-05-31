@@ -8,9 +8,15 @@ function Header() {
     <div className="flex-container">
       <div>
         <ul className="flex-div">
-          <li className="home-text margin-right">Home</li>
-          <li className="margin-right">About</li>
-          <li className="margin-right">Contact</li>
+          <Link to="/">
+            <li className="home-text margin-right">Home</li>
+          </Link>
+          <Link to="/about">
+            <li className="margin-right">About</li>
+          </Link>
+          <Link to="/contact">
+            <li className="margin-right">Contact</li>
+          </Link>
         </ul>
       </div>
       <div>
@@ -19,8 +25,12 @@ function Header() {
         </Link>
       </div>
       <div>
-        <FontAwesomeIcon className="header-icon" icon={faCartShopping} />
-        <FontAwesomeIcon className="header-icon" icon={faUser} />
+        <Link to="/cart">
+          <FontAwesomeIcon className="header-icon" icon={faCartShopping} />
+        </Link>
+        <Link to="/profile">
+          <FontAwesomeIcon className="header-icon" icon={faUser} />
+        </Link>
       </div>
     </div>
   );

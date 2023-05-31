@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
@@ -15,12 +17,18 @@ function ProductList() {
   }
 
   return (
-    <div className="grid-container">
-      {products.map((p) => (
-        <div key={p.id}>
-          <ProductCard product={p} />
-        </div>
-      ))}
+    <div>
+      <div className="center-div">
+        <FontAwesomeIcon icon={faSearch} />
+        <input className="search-bar" type="search" placeholder="Search..." />
+      </div>
+      <div className="grid-container">
+        {products.map((p) => (
+          <div key={p.id}>
+            <ProductCard product={p} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
