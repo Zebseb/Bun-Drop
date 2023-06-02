@@ -6,10 +6,21 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 function ProductList() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(getUser);
 
   useEffect(() => {
     getProducts();
   }, []);
+
+  function getUser() {
+    const foundUser = localStorage.getItem("signedIn");
+
+    if (foundUser) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   async function getProducts() {
     await fetch("http://localhost:7001/products")
@@ -49,7 +60,7 @@ function ProductList() {
       <div className="grid-container">
         {filteredProducts.map((p) => (
           <div key={p.id}>
-            <ProductCard product={p} />
+            <ProductCard product={p} foundUser={isLoggedIn} />
           </div>
         ))}
       </div>

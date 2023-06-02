@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
+import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 
-function ProductCard({ product }) {
+function ProductCard({ product, foundUser }) {
+  const [isLoggedIn, setIsLoggedIn] = useState(foundUser);
+
   function addToCart() {
     let cartItems = localStorage.getItem("cartItem");
     let cartItemToAdd;
@@ -21,11 +26,14 @@ function ProductCard({ product }) {
         id: product.id,
         name: product.name,
         volume: 1,
+        price: product.price,
       });
     }
 
     localStorage.setItem("cartItem", JSON.stringify(cartItems));
   }
+
+  function handleFavourite() {}
 
   return (
     <div>
@@ -43,6 +51,17 @@ function ProductCard({ product }) {
           <button className="add-btn" onClick={addToCart}>
             Add to cart
           </button>
+          {isLoggedIn ? (
+            <span>
+              <FontAwesomeIcon
+                className="favourite-icon"
+                icon={regularStar}
+                onClick={handleFavourite}
+              />
+            </span>
+          ) : (
+            <span></span>
+          )}
         </div>
       </div>
     </div>

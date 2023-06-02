@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import LoginForm from "./components/LoginForm";
 import Header from "./presentational/Header";
 import Footer from "./presentational/Footer";
 import Home from "./routes/Home";
@@ -11,6 +10,7 @@ import Menu from "./routes/Menu";
 import Profile from "./routes/Profile";
 import About from "./routes/About";
 import Contact from "./routes/Contact";
+import LoginForm from "./components/LoginForm";
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/loginform" element={<LoginForm />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <div>

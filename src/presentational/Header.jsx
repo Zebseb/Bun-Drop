@@ -1,9 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    checkUser();
+  }, []);
+
+  function checkUser() {
+    const loggedIn = localStorage.getItem("signedIn");
+    if (loggedIn != null) {
+      setIsLoggedIn(true);
+    }
+  }
+
   return (
     <div className="flex-container">
       <div>
@@ -28,9 +41,15 @@ function Header() {
         <Link to="/cart">
           <FontAwesomeIcon className="header-icon" icon={faCartShopping} />
         </Link>
-        <Link to="/profile">
-          <FontAwesomeIcon className="header-icon" icon={faUser} />
-        </Link>
+        {isLoggedIn ? (
+          <Link to="/profile">
+            <FontAwesomeIcon className="header-icon" icon={faUser} />
+          </Link>
+        ) : (
+          <Link to="/loginform">
+            <FontAwesomeIcon className="header-icon" icon={faUser} />
+          </Link>
+        )}
       </div>
     </div>
   );

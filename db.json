@@ -70,7 +70,7 @@
       "name": "Chocolate Oreo Shake",
       "description": "The all time selling milkshake with chocolate sauce and oreo bits.",
       "category": "Milkshakes",
-      "price": 4.0,
+      "price": 4,
       "image": "./public/images/milkshake-1.png"
     },
     {
@@ -78,7 +78,7 @@
       "name": "Strawberry Shake Luxury",
       "description": "Strawberry shake with whipped cream.",
       "category": "Milkshakes",
-      "price": 4.0,
+      "price": 4,
       "image": "./public/images/strawberry-shake.jpg"
     },
     {
@@ -86,7 +86,7 @@
       "name": "Sprite",
       "description": "A deliciously sugary drink.",
       "category": "Drinks",
-      "price": 2.0,
+      "price": 2,
       "image": "./public/images/soda-1.png"
     },
     {
@@ -94,7 +94,7 @@
       "name": "Fanta Exotic",
       "description": "Fanta top-seller with exotic taste.",
       "category": "Drinks",
-      "price": 2.0,
+      "price": 2,
       "image": "./public/images/soda-2.png"
     },
     {
@@ -102,7 +102,7 @@
       "name": "Coca-Cola Zero",
       "description": "Sugarfree Coca-Cola.",
       "category": "Drinks",
-      "price": 2.0,
+      "price": 2,
       "image": "./public/images/soda-3.png"
     },
     {
@@ -126,7 +126,7 @@
       "name": "Onion Rings",
       "description": "Deepfried onion.",
       "category": "Other",
-      "price": 3.0,
+      "price": 3,
       "image": "./public/images/onion-rings.jpeg"
     }
   ]

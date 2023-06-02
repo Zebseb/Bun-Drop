@@ -1,49 +1,62 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem";
 
 function Cart() {
-  let cartItems = localStorage.getItem("cartItem");
+  const [cartItems, setCartItems] = useState(getCart);
 
-  if (!cartItems) {
-    cartItems = [];
-  } else {
-    cartItems = JSON.parse(cartItems);
+  function getCart() {
+    const jsonCart = localStorage.getItem("cartItem");
+
+    if (jsonCart) {
+      const cart = JSON.parse(jsonCart);
+      return cart;
+    } else {
+      return [];
+    }
   }
 
-  function getCartItems() {
-    cartItems = localStorage.getItem("cartItem");
-    if (!cartItems) {
-      cartItems = [];
-    } else {
-      cartItems = JSON.parse(cartItems);
-    }
+  function updateCartItems() {
+    setCartItems(getCart);
+  }
+
+  function deleteCartItem(id) {
+    let cartItemsToKeep = cartItems.filter((i) => i.id !== id);
+    setCartItems(cartItemsToKeep);
   }
 
   function calculateTotal() {
     let totalCost = 0;
     cartItems.map((i) => {
-      totalCost += i.volume;
+      totalCost += i.volume * i.price;
     });
 
-    console.log(totalCost);
+    totalCost = Math.round(totalCost * 10) / 10;
+    return totalCost;
   }
 
-  if (cartItems) {
+  if (cartItems.length > 0) {
     return (
       <div>
         <h3>Your current order...</h3>
         {cartItems.map((i) => (
-          <CartItem key={i.id} item={i} getCartItems={getCartItems} />
+          <CartItem
+            key={i.id}
+            item={i}
+            deleteCartItem={deleteCartItem}
+            updateCartItems={updateCartItems}
+          />
         ))}
         <div className="flex-div">
-          <h5>Total: {calculateTotal()} $</h5>
+          <h4>Total: {calculateTotal()} $</h4>
           <Link to="/checkout">
             <button className="complete-btn">Complete order</button>
           </Link>
         </div>
       </div>
     );
+  } else if (!cartItems) {
+    return <div>Loading...</div>;
   } else {
     return (
       <div>
