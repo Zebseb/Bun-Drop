@@ -59,6 +59,7 @@ function LoginForm() {
           "Thanks for signing up to Bun Drop! Please log in with your credentials."
         );
         setFormChoice(true);
+        getUsers();
       } else {
         setMessage(
           "Your username have to contain at least 3 characters and the password at least 5 characters."
