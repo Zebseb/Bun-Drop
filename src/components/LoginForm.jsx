@@ -33,11 +33,15 @@ function LoginForm() {
       if (foundUser) {
         localStorage.setItem(
           "signedIn",
-          JSON.stringify({ isSignedin: true, user: user.name })
+          JSON.stringify({
+            isSignedin: true,
+            user: user.name,
+            dbId: foundUser.id,
+          })
         );
         setMessage(`Welcome ${user.name}!`);
         navigate("/");
-        location.reload(); // Reload all components
+        location.reload();
       } else {
         setMessage("Username or password is incorrect...");
       }

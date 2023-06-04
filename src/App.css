@@ -213,3 +213,7 @@ a {
 .underline {
   text-decoration: underline;
 }
+
+.favourite-icon {
+  cursor: pointer;
+}

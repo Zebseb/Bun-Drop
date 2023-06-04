@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 
 function ProductCard({ product, foundUser }) {
   const [isLoggedIn, setIsLoggedIn] = useState(foundUser);
+  const [loggedInUser, setLoggedInUser] = useState();
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  async function getUser() {
+    if (foundUser) {
+      const parsedUser = JSON.parse(foundUser);
+
+      await fetch(`http://localhost:7001/users/${parsedUser.dbId}`)
+        .then((res) => res.json())
+        .then((data) => setLoggedInUser(data));
+    }
+  }
 
   function addToCart() {
     let cartItems = localStorage.getItem("cartItem");
@@ -33,7 +48,19 @@ function ProductCard({ product, foundUser }) {
     localStorage.setItem("cartItem", JSON.stringify(cartItems));
   }
 
-  function handleFavourite() {}
+  function handleFavourite() {
+    fetch(`http://localhost:7001/users/${loggedInUser.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: loggedInUser.id,
+        name: loggedInUser.name,
+        password: loggedInUser.password,
+        orders: loggedInUser.orders,
+        favourites: [...loggedInUser.favourites, product],
+      }),
+    });
+  }
 
   return (
     <div>
@@ -60,7 +87,7 @@ function ProductCard({ product, foundUser }) {
               />
             </span>
           ) : (
-            <span></span>
+            <></>
           )}
         </div>
       </div>

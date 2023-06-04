@@ -16,7 +16,7 @@ function ProductList() {
     const foundUser = localStorage.getItem("signedIn");
 
     if (foundUser) {
-      return true;
+      return foundUser;
     } else {
       return false;
     }

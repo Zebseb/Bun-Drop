@@ -6,41 +6,6 @@
       "password": "password",
       "orders": [],
       "favourites": []
-    },
-    {
-      "name": "Sebbe",
-      "password": "bebbe",
-      "orders": [],
-      "favourites": [],
-      "id": 2
-    },
-    {
-      "name": "Sebbe",
-      "password": "Bebbe",
-      "orders": [],
-      "favourites": [],
-      "id": 3
-    },
-    {
-      "name": "Tessie",
-      "password": "tess123",
-      "orders": [],
-      "favourites": [],
-      "id": 4
-    },
-    {
-      "name": "Hehe",
-      "password": "Hehe123",
-      "orders": [],
-      "favourites": [],
-      "id": 5
-    },
-    {
-      "name": "Najj",
-      "password": "Najj123",
-      "orders": [],
-      "favourites": [],
-      "id": 6
     }
   ],
   "products": [
