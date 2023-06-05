@@ -5,7 +5,32 @@
       "name": "user",
       "password": "password",
       "orders": [],
-      "favourites": []
+      "favourites": [
+        {
+          "id": 3,
+          "name": "Chick-a-Deluxe",
+          "description": "Crispy burger with the finest of chicken fillets and our homemade chili-mayo.",
+          "category": "Burger",
+          "price": 5.5,
+          "image": "./public/images/burger-2.png"
+        },
+        {
+          "id": 6,
+          "name": "Chili cheese fries",
+          "description": "Our smokin' spicy fries with red chili, minced meat and red beans.",
+          "category": "Fries",
+          "price": 3.5,
+          "image": "./public/images/chili-cheese-fries-square-1.jpg"
+        },
+        {
+          "id": 1,
+          "name": "McDog",
+          "description": "A master burger in the spirit of Kod McDog. Double beef patty ofcourse!",
+          "category": "Burger",
+          "price": 4.9,
+          "image": "./public/images/burger-3.png"
+        }
+      ]
     }
   ],
   "products": [

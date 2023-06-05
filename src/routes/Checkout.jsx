@@ -1,14 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SwishSvg from "../../public/images/swish-logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCreditCard } from "@fortawesome/free-solid-svg-icons";
 import { Popup } from "../components/Popup/CheckoutPopUp";
 
 function Checkout() {
+  const [signedInUser, setSignedInUser] = useState();
+  const [user, setUser] = useState({});
+  const [cartItems, setCartItems] = useState(getCart);
+  const [order, setOrder] = useState();
   const [cardRadioBtn, setCardRadioBtn] = useState(true);
   const [swishRadioBtn, setSwishRadioBtn] = useState(false);
   const [open, setOpen] = useState(false);
   const [randomTime, setRandomTime] = useState(0);
+  const [userInfo, setUserInfo] = useState({
+    cardName: "",
+    cardNumber: 0,
+    expiration: "",
+    cvc: 0,
+    city: "",
+    street: "",
+    no: 0,
+    swishNumber: 0,
+  });
+
+  useEffect(() => {
+    getSignedInUser();
+  }, []);
+
+  useEffect(() => {
+    getUser();
+  }, [signedInUser]);
+
+  function getSignedInUser() {
+    const jsonUser = localStorage.getItem("signedIn");
+
+    if (jsonUser) {
+      const user = JSON.parse(jsonUser);
+      setSignedInUser(user);
+    } else {
+      return [];
+    }
+  }
+
+  async function getUser() {
+    if (signedInUser) {
+      await fetch(`http://localhost:7001/users/${signedInUser.dbId}`)
+        .then((res) => res.json())
+        .then((data) => setUser(data));
+    } else {
+    }
+  }
 
   function handleRadioButtons() {
     if (cardRadioBtn) {
@@ -18,6 +60,115 @@ function Checkout() {
       setSwishRadioBtn(false);
       setCardRadioBtn(true);
     }
+  }
+
+  function handleInput() {
+    if (cardRadioBtn) {
+      if (
+        userInfo.cardName.length > 3 &&
+        userInfo.cardNumber.length >= 4 &&
+        userInfo.expiration.length === 5 &&
+        userInfo.cvc.length === 3
+      ) {
+        setOpen(true);
+        setRandomTime(Math.round(Math.random() * 50));
+      }
+    } else {
+      if (userInfo.swishNumber.length >= 4) {
+        setOpen(true);
+        setRandomTime(Math.round(Math.random() * 50));
+      }
+    }
+
+    if (signedInUser) {
+      getOrder();
+      saveOrder();
+    }
+  }
+
+  function getOrder() {
+    let paymentType;
+    if (cardRadioBtn) {
+      paymentType = "Debit Card";
+    } else {
+      paymentType = "Swish";
+    }
+
+    const checkOutOrder = {
+      company: "Bun Drop",
+      date: getDate(),
+      items: [cartItems],
+      payment: paymentType,
+      address: `${userInfo.city}, ${userInfo.street} ${userInfo.no}`,
+    };
+
+    setOrder(checkOutOrder);
+  }
+
+  async function saveOrder() {
+    const response = await fetch(`http://localhost:7001/users/${user.id}`);
+    const dbUser = await response.json();
+    console.log(order);
+    dbUser.orders.push(order);
+
+    fetch(`http://localhost:7001/users/${user.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(dbUser),
+    });
+  }
+
+  function getCart() {
+    const jsonCart = localStorage.getItem("cartItem");
+
+    if (jsonCart) {
+      const cart = JSON.parse(jsonCart);
+      return cart;
+    } else {
+      return [];
+    }
+  }
+
+  function getDate() {
+    const current = new Date();
+    const date = `${current.getDate()}/${
+      current.getMonth() + 1
+    }/${current.getFullYear()}`;
+    const time = `${current.getHours()}:${current.getMinutes()}`;
+
+    return `${date} - ${time}`;
+  }
+
+  function handleCardName(e) {
+    setUserInfo({ ...userInfo, cardName: e.target.value });
+  }
+
+  function handleCardNumber(e) {
+    setUserInfo({ ...userInfo, cardNumber: e.target.value });
+  }
+
+  function handleExpiration(e) {
+    setUserInfo({ ...userInfo, expiration: e.target.value });
+  }
+
+  function handleCVC(e) {
+    setUserInfo({ ...userInfo, cvc: e.target.value });
+  }
+
+  function handleCity(e) {
+    setUserInfo({ ...userInfo, city: e.target.value });
+  }
+
+  function handleStreet(e) {
+    setUserInfo({ ...userInfo, street: e.target.value });
+  }
+
+  function handleNo(e) {
+    setUserInfo({ ...userInfo, no: e.target.value });
+  }
+
+  function handleSwish(e) {
+    setUserInfo({ ...userInfo, swishNumber: e.target.value });
   }
 
   if (cardRadioBtn) {
@@ -52,11 +203,23 @@ function Checkout() {
           </div>
           <div className="flex-div">
             <div className="flex-column">
-              <input type="text" placeholder="Card name" />
-              <input type="number" placeholder="Card number" />
+              <input
+                type="text"
+                placeholder="Card name"
+                onChange={handleCardName}
+              />
+              <input
+                type="number"
+                placeholder="Card number"
+                onChange={handleCardNumber}
+              />
               <div className="flex-div">
-                <input typ="number" placeholder="MM/YY" />
-                <input type="number" placeholder="CVC" />
+                <input
+                  type="text"
+                  placeholder="MM/YY"
+                  onChange={handleExpiration}
+                />
+                <input type="number" placeholder="CVC" onChange={handleCVC} />
               </div>
             </div>
           </div>
@@ -64,22 +227,16 @@ function Checkout() {
             <form className="flex-column">
               <h4>Info:</h4>
               <label htmlFor="city-input">City</label>
-              <input id="city-input" type="text" />
+              <input id="city-input" type="text" onChange={handleCity} />
               <label htmlFor="street-input">Street</label>
-              <input id="street-input" type="text" />
+              <input id="street-input" type="text" onChange={handleStreet} />
               <label htmlFor="number-input">No.</label>
-              <input type="number" />
+              <input type="number" onChange={handleNo} />
             </form>
           </div>
         </div>
         <div className="flex-div">
-          <button
-            onClick={() => {
-              setOpen(true);
-              setRandomTime(Math.round(Math.random() * 50));
-            }}
-            className="complete-btn"
-          >
+          <button onClick={handleInput} className="complete-btn">
             Checkout
           </button>
           {open ? (
@@ -123,28 +280,26 @@ function Checkout() {
             </form>
           </div>
           <div className="flex-div">
-            <input type="number" placeholder="Swish number" />
+            <input
+              type="number"
+              placeholder="Swish number"
+              onChange={handleSwish}
+            />
           </div>
           <div>
             <form className="flex-column">
               <h4>Info:</h4>
               <label htmlFor="city-input">City</label>
-              <input id="city-input" type="text" />
+              <input id="city-input" type="text" onChange={handleCity} />
               <label htmlFor="street-input">Street</label>
-              <input id="street-input" type="text" />
+              <input id="street-input" type="text" onChange={handleStreet} />
               <label htmlFor="number-input">No.</label>
-              <input type="number" />
+              <input type="number" onChange={handleNo} />
             </form>
           </div>
         </div>
         <div className="flex-div">
-          <button
-            onClick={() => {
-              setOpen(true);
-              setRandomTime(Math.round(Math.random() * 50));
-            }}
-            className="complete-btn"
-          >
+          <button onClick={handleInput} className="complete-btn">
             Checkout
           </button>
           {open ? (

@@ -3,21 +3,43 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 
-function ProductCard({ product, foundUser }) {
+function ProductCard({ product, foundUser, updateMenu }) {
   const [isLoggedIn, setIsLoggedIn] = useState(foundUser);
   const [loggedInUser, setLoggedInUser] = useState();
+  const [isFavourited, setIsFavourited] = useState();
 
   useEffect(() => {
     getUser();
   }, []);
 
-  async function getUser() {
+  useEffect(() => {
+    if (foundUser) {
+      getFavouriteStatus();
+    }
+  }, []);
+
+  function getUser() {
     if (foundUser) {
       const parsedUser = JSON.parse(foundUser);
 
-      await fetch(`http://localhost:7001/users/${parsedUser.dbId}`)
+      fetch(`http://localhost:7001/users/${parsedUser.dbId}`)
         .then((res) => res.json())
         .then((data) => setLoggedInUser(data));
+    }
+  }
+
+  async function getFavouriteStatus() {
+    const parsedUser = JSON.parse(foundUser);
+
+    const response = await fetch(
+      `http://localhost:7001/users/${parsedUser.dbId}`
+    );
+    const user = await response.json();
+
+    const foundProduct = user.favourites.find((p) => p.id === product.id);
+
+    if (foundProduct) {
+      setIsFavourited(true);
     }
   }
 
@@ -48,18 +70,39 @@ function ProductCard({ product, foundUser }) {
     localStorage.setItem("cartItem", JSON.stringify(cartItems));
   }
 
-  function handleFavourite() {
-    fetch(`http://localhost:7001/users/${loggedInUser.id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        id: loggedInUser.id,
-        name: loggedInUser.name,
-        password: loggedInUser.password,
-        orders: loggedInUser.orders,
-        favourites: [...loggedInUser.favourites, product],
-      }),
-    });
+  async function handleFavourite() {
+    const response = await fetch(
+      `http://localhost:7001/users/${loggedInUser.id}`
+    );
+    const user = await response.json();
+
+    const foundProduct = user.favourites.find((p) => p.id === product.id);
+
+    if (!isFavourited) {
+      if (!foundProduct) {
+        user.favourites.push(product);
+      }
+
+      fetch(`http://localhost:7001/users/${loggedInUser.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
+      });
+
+      setIsFavourited(true);
+      updateMenu();
+      getUser();
+    } else {
+      user.favourites = user.favourites.filter((p) => p.id !== product.id);
+
+      fetch(`http://localhost:7001/users/${loggedInUser.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
+      });
+
+      setIsFavourited(false);
+    }
   }
 
   return (
@@ -78,11 +121,22 @@ function ProductCard({ product, foundUser }) {
           <button className="add-btn" onClick={addToCart}>
             Add to cart
           </button>
-          {isLoggedIn ? (
+          {isLoggedIn && !isFavourited ? (
             <span>
               <FontAwesomeIcon
                 className="favourite-icon"
                 icon={regularStar}
+                onClick={handleFavourite}
+              />
+            </span>
+          ) : (
+            <></>
+          )}
+          {isLoggedIn && isFavourited ? (
+            <span>
+              <FontAwesomeIcon
+                className="favourite-icon"
+                icon={solidStar}
                 onClick={handleFavourite}
               />
             </span>

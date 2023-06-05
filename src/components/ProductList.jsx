@@ -22,8 +22,8 @@ function ProductList() {
     }
   }
 
-  async function getProducts() {
-    await fetch("http://localhost:7001/products")
+  function getProducts() {
+    fetch("http://localhost:7001/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -46,6 +46,11 @@ function ProductList() {
     setFilteredProducts(tempProducts);
   }
 
+  function updateMenu() {
+    getProducts();
+    getUser();
+  }
+
   return (
     <div>
       <div className="center-div input-icon">
@@ -60,7 +65,11 @@ function ProductList() {
       <div className="grid-container">
         {filteredProducts.map((p) => (
           <div key={p.id}>
-            <ProductCard product={p} foundUser={isLoggedIn} />
+            <ProductCard
+              product={p}
+              foundUser={isLoggedIn}
+              updateMenu={updateMenu}
+            />
           </div>
         ))}
       </div>
