@@ -9,6 +9,8 @@ function Checkout() {
   const [user, setUser] = useState({});
   const [cartItems, setCartItems] = useState(getCart);
   const [order, setOrder] = useState();
+  const [fullAddress, setFullAddress] = useState("");
+  const [finishedOrder, setFinishedOrder] = useState(false);
   const [cardRadioBtn, setCardRadioBtn] = useState(true);
   const [swishRadioBtn, setSwishRadioBtn] = useState(false);
   const [open, setOpen] = useState(false);
@@ -31,6 +33,10 @@ function Checkout() {
   useEffect(() => {
     getUser();
   }, [signedInUser]);
+
+  useEffect(() => {
+    getOrder();
+  }, [finishedOrder]);
 
   function getSignedInUser() {
     const jsonUser = localStorage.getItem("signedIn");
@@ -63,20 +69,30 @@ function Checkout() {
   }
 
   function handleInput() {
+    console.log(userInfo.city, userInfo.street, userInfo.no);
+
     if (cardRadioBtn) {
       if (
         userInfo.cardName.length > 3 &&
-        userInfo.cardNumber.length >= 4 &&
+        userInfo.cardNumber.toString().length >= 4 &&
         userInfo.expiration.length === 5 &&
-        userInfo.cvc.length === 3
+        userInfo.cvc.toString().length === 3
       ) {
         setOpen(true);
         setRandomTime(Math.round(Math.random() * 50));
+
+        if (!signedInUser) {
+          localStorage.removeItem("cartItem");
+        }
       }
     } else {
-      if (userInfo.swishNumber.length >= 4) {
+      if (userInfo.swishNumber.toString().length >= 4) {
         setOpen(true);
         setRandomTime(Math.round(Math.random() * 50));
+
+        if (!signedInUser) {
+          localStorage.removeItem("cartItem");
+        }
       }
     }
 
@@ -87,19 +103,12 @@ function Checkout() {
   }
 
   function getOrder() {
-    let paymentType;
-    if (cardRadioBtn) {
-      paymentType = "Debit Card";
-    } else {
-      paymentType = "Swish";
-    }
-
     const checkOutOrder = {
-      company: "Bun Drop",
-      date: getDate(),
-      items: [cartItems],
-      payment: paymentType,
-      address: `${userInfo.city}, ${userInfo.street} ${userInfo.no}`,
+      company: "",
+      date: "",
+      items: [],
+      payment: "",
+      address: "",
     };
 
     setOrder(checkOutOrder);
@@ -108,8 +117,27 @@ function Checkout() {
   async function saveOrder() {
     const response = await fetch(`http://localhost:7001/users/${user.id}`);
     const dbUser = await response.json();
-    console.log(order);
-    dbUser.orders.push(order);
+
+    if (order) {
+      let paymentType;
+      if (cardRadioBtn) {
+        paymentType = "Debit Card";
+      } else {
+        paymentType = "Swish";
+      }
+
+      const checkOutOrder = {
+        company: "Bun Drop",
+        date: getDate(),
+        items: cartItems,
+        payment: paymentType,
+        address: `${userInfo.city}, ${userInfo.street} ${userInfo.no}`,
+      };
+
+      dbUser.orders.push(checkOutOrder);
+      localStorage.removeItem("cartItem");
+      console.log(checkOutOrder);
+    }
 
     fetch(`http://localhost:7001/users/${user.id}`, {
       method: "PUT",

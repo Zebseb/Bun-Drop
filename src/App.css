@@ -3,10 +3,10 @@ html {
   height: 100vh;
   background-color: gainsboro;
   color: goldenrod;
-  /* background-image: url("../public/images/burger-bg.jpg");
+  background-image: url("../public/images/bun-drop-bg.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover; */
+  background-size: cover;
 }
 
 ul {
