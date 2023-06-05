@@ -7,6 +7,7 @@ function ProductCard({ product, foundUser, updateMenu }) {
   const [isLoggedIn, setIsLoggedIn] = useState(foundUser);
   const [loggedInUser, setLoggedInUser] = useState();
   const [isFavourited, setIsFavourited] = useState();
+  const [addToCartMessage, setAddToCartMessage] = useState("Add to cart");
 
   useEffect(() => {
     getUser();
@@ -44,6 +45,9 @@ function ProductCard({ product, foundUser, updateMenu }) {
   }
 
   function addToCart() {
+    const addBtn = document.querySelector(`#add-btn${product.id}`);
+    addBtn.classList.add("fade-in-text");
+
     let cartItems = localStorage.getItem("cartItem");
     let cartItemToAdd;
 
@@ -68,6 +72,11 @@ function ProductCard({ product, foundUser, updateMenu }) {
     }
 
     localStorage.setItem("cartItem", JSON.stringify(cartItems));
+
+    setTimeout(() => {
+      addBtn.classList.remove("fade-in-text");
+      console.log(addBtn);
+    }, 1000);
   }
 
   async function handleFavourite() {
@@ -118,8 +127,12 @@ function ProductCard({ product, foundUser, updateMenu }) {
         <span>Price: </span>
         <em>{product.price}$</em>
         <div>
-          <button className="add-btn" onClick={addToCart}>
-            Add to cart
+          <button
+            id={`add-btn${product.id}`}
+            className="add-btn"
+            onClick={addToCart}
+          >
+            {addToCartMessage}
           </button>
           {isLoggedIn && !isFavourited ? (
             <span>

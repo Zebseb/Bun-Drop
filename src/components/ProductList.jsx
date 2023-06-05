@@ -52,7 +52,7 @@ function ProductList() {
   }
 
   return (
-    <div>
+    <div className="flex-body">
       <div className="center-div input-icon">
         <FontAwesomeIcon className="search-icon" icon={faSearch} />
         <input
@@ -62,7 +62,7 @@ function ProductList() {
           onInput={handleInput}
         />
       </div>
-      <div className="grid-container">
+      <div id="scroll-bar" className="grid-container">
         {filteredProducts.map((p) => (
           <div key={p.id}>
             <ProductCard

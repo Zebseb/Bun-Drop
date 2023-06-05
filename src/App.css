@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,300&display=swap");
+
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Lato", sans-serif;
   height: 100vh;
   background-color: gainsboro;
-  color: goldenrod;
+  color: #ffee99;
   background-image: url("../public/images/bun-drop-bg.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -15,9 +17,21 @@ ul {
   padding: 0;
 }
 
+.footer-icons > li {
+  color: #ffee99;
+}
+
+.footer-icons > li:hover {
+  color: #fff6cc;
+}
+
 a {
   text-decoration: none;
-  color: goldenrod;
+  color: #ffdd32;
+}
+
+a:hover {
+  color: #fff2b2;
 }
 
 .flex-container {
@@ -40,14 +54,19 @@ a {
 }
 
 .flex-div > h2:hover {
-  color: gold;
+  color: #fff2b2;
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
   margin-top: 50px;
   margin-bottom: 50px;
+  height: 400px;
+  width: 1200px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .product-card {
@@ -55,7 +74,7 @@ a {
   margin: 10px;
   padding: 5px;
   border-radius: 10px;
-  background-color: rgb(229, 229, 229);
+  background-color: rgba(217, 217, 217, 0.5);
 }
 
 .product-card-img {
@@ -80,7 +99,7 @@ a {
 }
 
 .add-btn:hover {
-  background-color: gold;
+  background-color: #fff2b2;
 }
 
 .center-div {
@@ -113,6 +132,7 @@ a {
   max-width: 100px;
   text-align: center;
   margin-bottom: 10px;
+  filter: brightness(10);
 }
 
 .header-icon {
@@ -145,7 +165,7 @@ a {
 }
 
 .menu-button:hover {
-  background-color: goldenrod;
+  background-color: #fff2b2;
 }
 
 .search-bar {
@@ -178,7 +198,7 @@ a {
 }
 
 .complete-btn:hover {
-  background-color: gold;
+  background-color: #fff2b2;
 }
 
 .trash-icon {
@@ -188,6 +208,14 @@ a {
 .checkout-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+
+.flex-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .flex-column {
@@ -216,4 +244,34 @@ a {
 
 .favourite-icon {
   cursor: pointer;
+}
+
+.fade-in-text {
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#scroll-bar::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+#scroll-bar::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5;
+}
+
+#scroll-bar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #555;
 }

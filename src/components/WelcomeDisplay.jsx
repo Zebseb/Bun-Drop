@@ -25,7 +25,7 @@ function WelcomeDisplay() {
         <div className="menu-text">
           {user ? (
             <h2>
-              <span className="italic-text">Hey there</span>, {user.user}!
+              <span className="italic-text">Hey there,</span> {user.user}!
             </h2>
           ) : (
             <h2>

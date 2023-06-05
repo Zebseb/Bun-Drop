@@ -7,28 +7,12 @@
       "orders": [],
       "favourites": [
         {
-          "id": 3,
-          "name": "Chick-a-Deluxe",
-          "description": "Crispy burger with the finest of chicken fillets and our homemade chili-mayo.",
-          "category": "Burger",
-          "price": 5.5,
-          "image": "./public/images/burger-2.png"
-        },
-        {
           "id": 6,
           "name": "Chili cheese fries",
           "description": "Our smokin' spicy fries with red chili, minced meat and red beans.",
           "category": "Fries",
           "price": 3.5,
           "image": "./public/images/chili-cheese-fries-square-1.jpg"
-        },
-        {
-          "id": 1,
-          "name": "McDog",
-          "description": "A master burger in the spirit of Kod McDog. Double beef patty ofcourse!",
-          "category": "Burger",
-          "price": 4.9,
-          "image": "./public/images/burger-3.png"
         }
       ]
     }
@@ -53,7 +37,7 @@
     {
       "id": 3,
       "name": "Chick-a-Deluxe",
-      "description": "Crispy burger with the finest of chicken fillets and our homemade chili-mayo.",
+      "description": "Crispy burger with the finest of chicken fillets.",
       "category": "Burger",
       "price": 5.5,
       "image": "./public/images/burger-2.png"
@@ -61,7 +45,7 @@
     {
       "id": 4,
       "name": "Classic fries",
-      "description": "Crispy burger with the finest of chicken fillets and our homemade chili-mayo.",
+      "description": "A real classic. Regular fries. Regular salt.",
       "category": "Fries",
       "price": 2.5,
       "image": "./public/images/fries-1.png"
@@ -85,7 +69,7 @@
     {
       "id": 7,
       "name": "Shake a la Cookie & Cream",
-      "description": "A really sweet and refreshening milkshake. Chocolate, vanilla and chunky bits.",
+      "description": "A really refreshening milkshake. Chocolate, vanilla and chunky bits.",
       "category": "Milkshakes",
       "price": 3.8,
       "image": "./public/images/chocolate-shake.jpg"
@@ -108,24 +92,24 @@
     },
     {
       "id": 10,
-      "name": "Sprite",
-      "description": "A deliciously sugary drink.",
+      "name": "Frida",
+      "description": "A deliciously sugary drink, Frida - Early Bird.",
       "category": "Drinks",
       "price": 2,
       "image": "./public/images/soda-1.png"
     },
     {
       "id": 11,
-      "name": "Fanta Exotic",
-      "description": "Fanta top-seller with exotic taste.",
+      "name": "Olipop",
+      "description": "Olipop's top-seller with the taste of strawberries and vanilla.",
       "category": "Drinks",
       "price": 2,
       "image": "./public/images/soda-2.png"
     },
     {
       "id": 12,
-      "name": "Coca-Cola Zero",
-      "description": "Sugarfree Coca-Cola.",
+      "name": "Calpis Water",
+      "description": "Magic-tasting water from the finest of wells in Japan.",
       "category": "Drinks",
       "price": 2,
       "image": "./public/images/soda-3.png"
@@ -140,16 +124,16 @@
     },
     {
       "id": 14,
-      "name": "Mozarella Sticks",
-      "description": "Crunchy sticks with creamy mozarella inside.",
+      "name": "Mozarella sticks",
+      "description": "Crunchyness with creamy mozarella.",
       "category": "Other",
       "price": 3.2,
       "image": "./public/images/mozzarella-sticks.jpg"
     },
     {
       "id": 15,
-      "name": "Onion Rings",
-      "description": "Deepfried onion.",
+      "name": "Onion rings",
+      "description": "Deepfried onion with lime on the side.",
       "category": "Other",
       "price": 3,
       "image": "./public/images/onion-rings.jpeg"
