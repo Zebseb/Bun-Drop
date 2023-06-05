@@ -126,7 +126,7 @@ function ProductCard({ product, foundUser, updateMenu }) {
         <p>{product.description}</p>
         <span>Price: </span>
         <em>{product.price}$</em>
-        <div>
+        <div className="btn-div">
           <button
             id={`add-btn${product.id}`}
             className="add-btn"

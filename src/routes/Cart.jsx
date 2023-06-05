@@ -59,9 +59,12 @@ function Cart() {
     return <div>Loading...</div>;
   } else {
     return (
-      <div>
-        <h2>Your cart is currently empty.</h2>
-        <h2>Check out our menu to add products.</h2>
+      <div className="center-div">
+        <h3>Your cart is currently empty.</h3>
+        <h3>Check out our menu to add products.</h3>
+        <Link to="/menu">
+          <button className="menu-button">See menu</button>
+        </Link>
       </div>
     );
   }

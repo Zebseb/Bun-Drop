@@ -11,15 +11,21 @@ function Footer() {
     <div>
       <div className="flex-container">
         <ul className="footer-icons">
-          <li className="margin-left icon-medium">
-            <FontAwesomeIcon icon={faInstagram} />
-          </li>
-          <li className="margin-left icon-medium">
-            <FontAwesomeIcon icon={faTwitter} />
-          </li>
-          <li className="margin-left icon-medium">
-            <FontAwesomeIcon icon={faFacebook} />
-          </li>
+          <a href="https://www.instagram.com/" target="_blank">
+            <li className="margin-left icon-medium">
+              <FontAwesomeIcon icon={faInstagram} />
+            </li>
+          </a>
+          <a href="https://twitter.com/" target="_blank">
+            <li className="margin-left icon-medium">
+              <FontAwesomeIcon icon={faTwitter} />
+            </li>
+          </a>
+          <a href="https://sv-se.facebook.com/" target="_blank">
+            <li className="margin-left icon-medium">
+              <FontAwesomeIcon icon={faFacebook} />
+            </li>
+          </a>
         </ul>
       </div>
     </div>

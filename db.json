@@ -13,6 +13,14 @@
           "category": "Fries",
           "price": 3.5,
           "image": "./public/images/chili-cheese-fries-square-1.jpg"
+        },
+        {
+          "id": 13,
+          "name": "Bearnaise dip",
+          "description": "The perfect partner to your fries!",
+          "category": "Other",
+          "price": 0.9,
+          "image": "./public/images/bea-dip.png"
         }
       ]
     }
@@ -117,7 +125,7 @@
     {
       "id": 13,
       "name": "Bearnaise dip",
-      "description": "The perfect partner to your fries. A Swedish classic!",
+      "description": "The perfect partner to your fries!",
       "category": "Other",
       "price": 0.9,
       "image": "./public/images/bea-dip.png"

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 function Profile() {
   const [signedInUser, setSignedInUser] = useState({});
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState();
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
 
@@ -35,6 +35,7 @@ function Profile() {
 
   function getUser() {
     const foundUser = users.find((u) => u.name === signedInUser.user);
+    console.log(foundUser);
     setUser(foundUser);
   }
 
@@ -46,9 +47,19 @@ function Profile() {
 
   if (user) {
     return (
-      <div>
+      <div className="center-div">
         <h3>Username: {user.name}</h3>
-        <button onClick={handleLogOut}>Log out</button>
+        <h3>Favourites: </h3>
+        {user.favourites.map((f) => (
+          <div key={f.id}>
+            <ul id="favourites-list">
+              <li className="bright-text">{f.name}</li>
+            </ul>
+          </div>
+        ))}
+        <button id="log-out-btn" className="menu-button" onClick={handleLogOut}>
+          Log out
+        </button>
       </div>
     );
   } else {
