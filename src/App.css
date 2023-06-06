@@ -11,6 +11,13 @@ html {
   background-size: cover;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 button {
   background-color: rgba(98, 98, 98, 0.8);
   color: #fff2b2;
@@ -33,6 +40,11 @@ ul {
 a {
   text-decoration: none;
   color: #ffdd32;
+}
+
+h4 {
+  margin-top: 25px;
+  margin-bottom: 15px;
 }
 
 a:hover {
@@ -364,8 +376,9 @@ h3 {
 }
 
 .opacity-div-login {
+  margin: auto;
   text-align: center;
-  margin: 50px 500px;
+  width: 400px;
   padding: 5px;
   border-radius: 10px;
   background-color: rgba(70, 70, 70, 0.75);
@@ -454,4 +467,71 @@ h3 {
 
 .input-small {
   width: 85px;
+}
+
+.flex-body > .flex-column {
+  margin-top: 10px;
+}
+
+.flex-div > button {
+  margin-top: 20px;
+}
+
+.checkout-opacity-div {
+  margin: auto;
+  max-width: 500px;
+  border-radius: 10px;
+  background-color: rgba(70, 70, 70, 0.75);
+  height: 425px;
+  width: 1200px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-top: 20px;
+}
+
+.margin-bottom {
+  margin-bottom: 25px;
+}
+
+.swish-input {
+  width: 200px;
+}
+
+.dark-bg {
+  background-color: rgba(50, 50, 50, 1);
+}
+
+.center-div > .flex-div {
+  align-items: start;
+}
+
+.favourites-list-item {
+  text-align: start;
+}
+
+.flex-div > h3 {
+  margin: 2px 20px;
+}
+
+.profile-list {
+  margin: 5px 10px;
+}
+
+.profile-flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-large {
+  font-size: 30px;
+}
+
+.margin-top {
+  margin-top: 20px;
+}
+
+#popup-close-btn {
+  margin: 50px;
 }

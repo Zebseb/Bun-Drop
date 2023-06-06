@@ -1,3 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPerson } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faReceipt } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -47,19 +51,57 @@ function Profile() {
 
   if (user) {
     return (
-      <div className="center-div">
-        <h3>Username: {user.name}</h3>
-        <h3>Favourites: </h3>
-        {user.favourites.map((f) => (
-          <div key={f.id}>
-            <ul id="favourites-list">
-              <li className="bright-text">{f.name}</li>
-            </ul>
+      <div>
+        <div className="center-div opacity-div-login">
+          <div className="profile-flex-row">
+            <FontAwesomeIcon
+              className="margin-right icon-large"
+              icon={faPerson}
+            />
+            <h3>{user.name}</h3>
           </div>
-        ))}
-        <button id="log-out-btn" className="menu-button" onClick={handleLogOut}>
-          Log out
-        </button>
+          <div className="flex-div margin-top">
+            <FontAwesomeIcon
+              className="margin-right icon-medium"
+              icon={faStar}
+            />
+            <div className="flex-column">
+              {user.favourites.map((f) => (
+                <div className="favourites-list-item" key={f.id}>
+                  <ul className="profile-list">
+                    <li className="bright-text">{f.name}</li>
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex-div margin-top margin-bottom">
+            <FontAwesomeIcon
+              className="margin-right icon-medium"
+              icon={faReceipt}
+            />
+            <div className="flex-column">
+              {user.orders.map((o) => (
+                <div className="favourites-list-item" key={o.date}>
+                  <ul className="profile-list">
+                    <li className="bright-text">
+                      {o.date} | {o.payment}
+                    </li>
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="center-div">
+          <button
+            id="log-out-btn"
+            className="menu-button"
+            onClick={handleLogOut}
+          >
+            Log out
+          </button>
+        </div>
       </div>
     );
   } else {

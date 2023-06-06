@@ -8,11 +8,17 @@ export const Popup = ({ thanksText, orderText, closePopup }) => {
       <div className="popup-body">
         <h1>{thanksText}</h1>
         <em>{orderText}</em>
-        <Link to="/">
-          <button className="complete-btn" onClick={closePopup}>
-            Close X
-          </button>
-        </Link>
+        <div>
+          <Link to="/">
+            <button
+              id="popup-close-btn"
+              className="complete-btn"
+              onClick={closePopup}
+            >
+              Close X
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

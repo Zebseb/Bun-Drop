@@ -7,8 +7,34 @@
       "orders": [
         {
           "company": "Bun Drop",
-          "date": "6/6/2023 - 11:20",
+          "date": "6/6/2023 - 17:32",
           "items": [
+            {
+              "id": 2,
+              "name": "Bacon & Cheese",
+              "volume": 1,
+              "price": 5.9
+            },
+            {
+              "id": 3,
+              "name": "Chick-a-Deluxe",
+              "volume": 1,
+              "price": 5.5
+            }
+          ],
+          "payment": "Debit Card",
+          "address": "Malmö, Gatan 1"
+        },
+        {
+          "company": "Bun Drop",
+          "date": "6/6/2023 - 17:42",
+          "items": [
+            {
+              "id": 2,
+              "name": "Bacon & Cheese",
+              "volume": 1,
+              "price": 5.9
+            },
             {
               "id": 3,
               "name": "Chick-a-Deluxe",
@@ -16,20 +42,14 @@
               "price": 5.5
             },
             {
-              "id": 2,
-              "name": "Bacon & Cheese",
-              "volume": 2,
-              "price": 5.9
-            },
-            {
-              "id": 4,
-              "name": "Classic fries",
+              "id": 7,
+              "name": "Shake a la Cookie & Cream",
               "volume": 1,
-              "price": 2.5
+              "price": 3.8
             }
           ],
-          "payment": "Debit Card",
-          "address": ",  0"
+          "payment": "Swish",
+          "address": "Malmö, Vägen 8"
         }
       ],
       "favourites": [

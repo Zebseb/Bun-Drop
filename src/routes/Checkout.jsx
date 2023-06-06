@@ -69,7 +69,7 @@ function Checkout() {
   }
 
   function handleInput() {
-    console.log(userInfo.city, userInfo.street, userInfo.no);
+    let isOkInput = false;
 
     if (cardRadioBtn) {
       if (
@@ -84,6 +84,7 @@ function Checkout() {
         if (!signedInUser) {
           localStorage.removeItem("cartItem");
         }
+        isOkInput = true;
       }
     } else {
       if (userInfo.swishNumber.toString().length >= 4) {
@@ -93,10 +94,11 @@ function Checkout() {
         if (!signedInUser) {
           localStorage.removeItem("cartItem");
         }
+        isOkInput = true;
       }
     }
 
-    if (signedInUser) {
+    if (signedInUser && isOkInput) {
       getOrder();
       saveOrder();
     }
@@ -199,34 +201,34 @@ function Checkout() {
     setUserInfo({ ...userInfo, swishNumber: e.target.value });
   }
 
-  if (cardRadioBtn) {
-    return (
-      <div>
-        <div>
-          <div className="flex-body">
-            <h4>Payment method</h4>
-            <div className="flex-div">
-              <div>
-                <div className="flex-div payment-choice-div flex-start">
-                  <input
-                    type="radio"
-                    checked={cardRadioBtn}
-                    onChange={handleRadioButtons}
-                  />
-                  <h5>Debit card</h5>
-                  <FontAwesomeIcon className="card-icon" icon={faCreditCard} />
-                </div>
-                <div className="flex-div payment-choice-div flex-start">
-                  <input
-                    type="radio"
-                    checked={swishRadioBtn}
-                    onChange={handleRadioButtons}
-                  />
-                  <h5>Swish</h5>
-                  <img className="swish-logo" src={SwishSvg} />
-                </div>
+  return (
+    <div>
+      <div className="checkout-opacity-div">
+        <div className="flex-body">
+          <h4>Payment method</h4>
+          <div className="flex-div">
+            <div>
+              <div className="flex-div payment-choice-div flex-start">
+                <input
+                  type="radio"
+                  checked={cardRadioBtn}
+                  onChange={handleRadioButtons}
+                />
+                <h5>Debit card</h5>
+                <FontAwesomeIcon className="card-icon" icon={faCreditCard} />
               </div>
-              <div className="flex-div">
+              <div className="flex-div payment-choice-div flex-start">
+                <input
+                  type="radio"
+                  checked={swishRadioBtn}
+                  onChange={handleRadioButtons}
+                />
+                <h5>Swish</h5>
+                <img className="swish-logo" src={SwishSvg} />
+              </div>
+            </div>
+            <div className="flex-div">
+              {cardRadioBtn ? (
                 <div className="flex-column">
                   <input
                     className="checkout-input"
@@ -255,113 +257,128 @@ function Checkout() {
                     />
                   </div>
                 </div>
-              </div>
+              ) : (
+                <div className="flex-column">
+                  <input className="checkout-input dark-bg" disabled />
+                  <input className="checkout-input dark-bg" disabled />
+                  <div className="flex-div">
+                    <input
+                      className="checkout-input swish-input"
+                      type="number"
+                      placeholder="Swish number"
+                      onChange={handleSwish}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
-          <div>
+        </div>
+        <div>
+          <div className="flex-body">
+            <h4>Delivery information</h4>
             <form className="flex-column">
-              <h4>Info:</h4>
-              <label htmlFor="city-input">City</label>
               <input
                 className="checkout-input"
                 id="city-input"
                 type="text"
+                placeholder="City"
                 onChange={handleCity}
               />
-              <label htmlFor="street-input">Street</label>
               <input
                 className="checkout-input"
                 id="street-input"
                 type="text"
+                placeholder="Street"
                 onChange={handleStreet}
               />
-              <label htmlFor="number-input">No.</label>
               <input
-                className="checkout-input"
+                className="checkout-input margin-bottom"
                 type="number"
+                placeholder="No."
                 onChange={handleNo}
               />
             </form>
           </div>
         </div>
-        <div className="flex-div">
-          <button onClick={handleInput} className="complete-btn">
-            Checkout
-          </button>
-          {open ? (
-            <Popup
-              thanksText={`Thanks for ordering!`}
-              orderText={`Your food will be delivered in ${randomTime} minutes.`}
-              closePopup={() => setOpen(false)}
-            />
-          ) : null}
-        </div>
       </div>
-    );
-  } else if (swishRadioBtn) {
-    return (
-      <div>
-        <div>
-          <h2>Payment</h2>
-        </div>
-        <div className="checkout-grid">
-          <div>
-            <h4>Payment method</h4>
-            <form>
-              <div className="flex-div">
-                <input
-                  type="radio"
-                  checked={cardRadioBtn}
-                  onChange={handleRadioButtons}
-                />
-                <h5>Debit card</h5>
-                <FontAwesomeIcon className="card-icon" icon={faCreditCard} />
-              </div>
-              <div className="flex-div">
-                <input
-                  type="radio"
-                  checked={swishRadioBtn}
-                  onChange={handleRadioButtons}
-                />
-                <h5>Swish</h5>
-                <img className="swish-logo" src={SwishSvg} />
-              </div>
-            </form>
-          </div>
-          <div className="flex-div">
-            <input
-              type="number"
-              placeholder="Swish number"
-              onChange={handleSwish}
-            />
-          </div>
-          <div>
-            <form className="flex-column">
-              <h4>Info:</h4>
-              <label htmlFor="city-input">City</label>
-              <input id="city-input" type="text" onChange={handleCity} />
-              <label htmlFor="street-input">Street</label>
-              <input id="street-input" type="text" onChange={handleStreet} />
-              <label htmlFor="number-input">No.</label>
-              <input type="number" onChange={handleNo} />
-            </form>
-          </div>
-        </div>
-        <div className="flex-div">
-          <button onClick={handleInput} className="complete-btn">
-            Checkout
-          </button>
-          {open ? (
-            <Popup
-              thanksText={`Thanks for ordering!`}
-              orderText={`Your food will be delivered in ${randomTime} minutes.`}
-              closePopup={() => setOpen(false)}
-            />
-          ) : null}
-        </div>
+      <div className="flex-div">
+        <button onClick={handleInput} className="complete-btn">
+          Checkout
+        </button>
+        {open ? (
+          <Popup
+            thanksText={`Thanks for ordering!`}
+            orderText={`Your food will be delivered in ${randomTime} minutes.`}
+            closePopup={() => setOpen(false)}
+          />
+        ) : null}
       </div>
-    );
-  }
+    </div>
+  );
+  //  else if (swishRadioBtn) {
+  //     return (
+  //       <div>
+  //         <div>
+  //           <h2>Payment</h2>
+  //         </div>
+  //         <div className="checkout-grid">
+  //           <div>
+  //             <h4>Payment method</h4>
+  //             <form>
+  //               <div className="flex-div">
+  //                 <input
+  //                   type="radio"
+  //                   checked={cardRadioBtn}
+  //                   onChange={handleRadioButtons}
+  //                 />
+  //                 <h5>Debit card</h5>
+  //                 <FontAwesomeIcon className="card-icon" icon={faCreditCard} />
+  //               </div>
+  //               <div className="flex-div">
+  //                 <input
+  //                   type="radio"
+  //                   checked={swishRadioBtn}
+  //                   onChange={handleRadioButtons}
+  //                 />
+  //                 <h5>Swish</h5>
+  //                 <img className="swish-logo" src={SwishSvg} />
+  //               </div>
+  //             </form>
+  //           </div>
+  //           <div className="flex-div">
+  //             <input
+  //               type="number"
+  //               placeholder="Swish number"
+  //               onChange={handleSwish}
+  //             />
+  //           </div>
+  //           <div>
+  //             <form className="flex-column">
+  //               <h4>Delivery information</h4>
+  //               <label htmlFor="city-input">City</label>
+  //               <input id="city-input" type="text" onChange={handleCity} />
+  //               <label htmlFor="street-input">Street</label>
+  //               <input id="street-input" type="text" onChange={handleStreet} />
+  //               <label htmlFor="number-input">No.</label>
+  //               <input type="number" onChange={handleNo} />
+  //             </form>
+  //           </div>
+  //         </div>
+  //         <div className="flex-div">
+  //           <button onClick={handleInput} className="complete-btn">
+  //             Checkout
+  //           </button>
+  //           {open ? (
+  //             <Popup
+  //               thanksText={`Thanks for ordering!`}
+  //               orderText={`Your food will be delivered in ${randomTime} minutes.`}
+  //               closePopup={() => setOpen(false)}
+  //             />
+  //           ) : null}
+  //         </div>
+  //       </div>
+  //     );
 }
 
 export default Checkout;
