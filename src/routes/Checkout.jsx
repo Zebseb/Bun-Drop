@@ -203,51 +203,58 @@ function Checkout() {
     return (
       <div>
         <div>
-          <h2>Payment</h2>
-        </div>
-        <div className="checkout-grid">
-          <div>
+          <div className="flex-body">
             <h4>Payment method</h4>
-            <form>
-              <div className="flex-div">
-                <input
-                  type="radio"
-                  checked={cardRadioBtn}
-                  onChange={handleRadioButtons}
-                />
-                <h5>Debit card</h5>
-                <FontAwesomeIcon className="card-icon" icon={faCreditCard} />
+            <div className="flex-div">
+              <div>
+                <div className="flex-div payment-choice-div flex-start">
+                  <input
+                    type="radio"
+                    checked={cardRadioBtn}
+                    onChange={handleRadioButtons}
+                  />
+                  <h5>Debit card</h5>
+                  <FontAwesomeIcon className="card-icon" icon={faCreditCard} />
+                </div>
+                <div className="flex-div payment-choice-div flex-start">
+                  <input
+                    type="radio"
+                    checked={swishRadioBtn}
+                    onChange={handleRadioButtons}
+                  />
+                  <h5>Swish</h5>
+                  <img className="swish-logo" src={SwishSvg} />
+                </div>
               </div>
               <div className="flex-div">
-                <input
-                  type="radio"
-                  checked={swishRadioBtn}
-                  onChange={handleRadioButtons}
-                />
-                <h5>Swish</h5>
-                <img className="swish-logo" src={SwishSvg} />
-              </div>
-            </form>
-          </div>
-          <div className="flex-div">
-            <div className="flex-column">
-              <input
-                type="text"
-                placeholder="Card name"
-                onChange={handleCardName}
-              />
-              <input
-                type="number"
-                placeholder="Card number"
-                onChange={handleCardNumber}
-              />
-              <div className="flex-div">
-                <input
-                  type="text"
-                  placeholder="MM/YY"
-                  onChange={handleExpiration}
-                />
-                <input type="number" placeholder="CVC" onChange={handleCVC} />
+                <div className="flex-column">
+                  <input
+                    className="checkout-input"
+                    type="text"
+                    placeholder="Card name"
+                    onChange={handleCardName}
+                  />
+                  <input
+                    className="checkout-input"
+                    type="number"
+                    placeholder="Card number"
+                    onChange={handleCardNumber}
+                  />
+                  <div className="flex-div">
+                    <input
+                      className="checkout-input input-small"
+                      type="text"
+                      placeholder="MM/YY"
+                      onChange={handleExpiration}
+                    />
+                    <input
+                      className="checkout-input input-small"
+                      type="number"
+                      placeholder="CVC"
+                      onChange={handleCVC}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -255,11 +262,25 @@ function Checkout() {
             <form className="flex-column">
               <h4>Info:</h4>
               <label htmlFor="city-input">City</label>
-              <input id="city-input" type="text" onChange={handleCity} />
+              <input
+                className="checkout-input"
+                id="city-input"
+                type="text"
+                onChange={handleCity}
+              />
               <label htmlFor="street-input">Street</label>
-              <input id="street-input" type="text" onChange={handleStreet} />
+              <input
+                className="checkout-input"
+                id="street-input"
+                type="text"
+                onChange={handleStreet}
+              />
               <label htmlFor="number-input">No.</label>
-              <input type="number" onChange={handleNo} />
+              <input
+                className="checkout-input"
+                type="number"
+                onChange={handleNo}
+              />
             </form>
           </div>
         </div>

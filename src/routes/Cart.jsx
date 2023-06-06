@@ -37,22 +37,26 @@ function Cart() {
 
   if (cartItems.length > 0) {
     return (
-      <div className="cart-opacity-div">
+      <div>
         <div className="center-div">
           <h3>Your current order...</h3>
         </div>
-        <div className="cart-container">
-          {cartItems.map((i) => (
-            <CartItem
-              key={i.id}
-              item={i}
-              deleteCartItem={deleteCartItem}
-              updateCartItems={updateCartItems}
-            />
-          ))}
+        <div id="scroll-cart" className="cart-opacity-div">
+          <div className="cart-container">
+            {cartItems.map((i) => (
+              <CartItem
+                key={i.id}
+                item={i}
+                deleteCartItem={deleteCartItem}
+                updateCartItems={updateCartItems}
+              />
+            ))}
+          </div>
+          <div className="flex-column center-div">
+            <h4>Total: {calculateTotal()} $</h4>
+          </div>
         </div>
-        <div className="flex-column center-div">
-          <h4>Total: {calculateTotal()} $</h4>
+        <div className="center-div">
           <Link to="/checkout">
             <button className="complete-btn">Complete order</button>
           </Link>
