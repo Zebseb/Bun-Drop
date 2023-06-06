@@ -70,6 +70,20 @@
           "image": "./public/images/bea-dip.png"
         }
       ]
+    },
+    {
+      "name": "Sebbish",
+      "password": "Sebbish",
+      "orders": [],
+      "favourites": [],
+      "id": 2
+    },
+    {
+      "name": "Bebbe",
+      "password": "Bebbe",
+      "orders": [],
+      "favourites": [],
+      "id": 3
     }
   ],
   "products": [

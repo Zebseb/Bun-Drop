@@ -15,7 +15,7 @@ function LoginForm() {
 
   useEffect(() => {
     getUsers();
-  }, []);
+  }, [logInSelected]);
 
   async function getUsers() {
     await fetch("http://localhost:7001/users")
@@ -26,6 +26,7 @@ function LoginForm() {
   function handleFormInput(e) {
     e.preventDefault();
     if (logInSelected) {
+      console.log(users);
       const foundUser = users.find(
         (u) => u.name === user.name && u.password === user.password
       );
