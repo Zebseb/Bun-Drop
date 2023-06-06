@@ -89,31 +89,49 @@ function CartItem(props) {
   }
 
   return (
-    <div>
-      <div className="flex-div">
+    <div className="cart-flex">
+      <div>
         <h3>{product.name}</h3>
-        <button
-          onClick={() => {
-            handleSubtractVolume();
-          }}
-        >
-          -
-        </button>
-        <span>{item.volume}</span>
-        <button
-          onClick={() => {
-            handleAddVolume();
-          }}
-        >
-          +
-        </button>
+      </div>
+      <div className="cart-volume-div">
+        <div>
+          <button
+            className="volume-btn"
+            onClick={() => {
+              handleSubtractVolume();
+            }}
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <span>{item.volume}</span>
+        </div>
+        <div>
+          <button
+            className="volume-btn"
+            onClick={() => {
+              handleAddVolume();
+            }}
+          >
+            +
+          </button>
+        </div>
+      </div>
+      <div>
         <img className="cart-img" src={product.image} />
+      </div>
+      <div>
         <em>{item.price} $</em>
-        <FontAwesomeIcon
-          className="trash-icon"
-          icon={faTrashCan}
-          onClick={removeCartItem}
-        />
+      </div>
+      <div className="flex-column">
+        <div className="bin-div">
+          <FontAwesomeIcon
+            className="trash-icon"
+            icon={faTrashCan}
+            onClick={removeCartItem}
+          />
+        </div>
       </div>
     </div>
   );

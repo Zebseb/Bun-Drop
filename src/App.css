@@ -118,7 +118,7 @@ a:hover {
 
 .center-div {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .italic-text {
@@ -149,7 +149,7 @@ a:hover {
 .logo-header {
   max-width: 100px;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   filter: brightness(10);
 }
 
@@ -159,7 +159,7 @@ a:hover {
 
 .header-icon {
   font-size: 20px;
-  margin-left: 60px;
+  margin: 0px 35px;
   cursor: pointer;
 }
 
@@ -227,12 +227,17 @@ a:hover {
   border: none;
   border-radius: 10%;
   padding: 10px;
-  margin-top: 50px;
+  margin-bottom: 10px;
   cursor: pointer;
+}
+
+.flex-column > a {
+  margin: 0;
 }
 
 .complete-btn:hover {
   background-color: #fff2b2;
+  color: rgb(80, 80, 80);
 }
 
 .trash-icon {
@@ -287,6 +292,7 @@ a:hover {
 @keyframes fadeIn {
   0% {
     opacity: 0;
+    background-color: rgb(111, 255, 0);
   }
   100% {
     opacity: 1;
@@ -305,4 +311,94 @@ a:hover {
 
 #scroll-bar::-webkit-scrollbar-thumb {
   background: linear-gradient(45deg, rgb(255, 242, 178), rgba(255, 221, 50, 1));
+}
+
+.login-bar {
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+  margin: 10px;
+  background-color: rgba(120, 120, 120, 0.8);
+  color: #ffee99;
+}
+
+.login-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px;
+}
+
+.login-btn:hover {
+  background-color: #fff2b2;
+  color: rgb(80, 80, 80);
+  cursor: pointer;
+}
+
+.password-label {
+  margin-left: 5px;
+}
+
+.flex-body > form {
+  margin-top: 50px;
+}
+
+.center-div > a > button {
+  margin-top: 20px;
+}
+
+.flex-column > h4 {
+  color: #ffdd32;
+}
+
+.opacity-div-login {
+  text-align: center;
+  margin: 50px 500px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: rgba(70, 70, 70, 0.75);
+}
+
+.cart-container {
+  text-align: center;
+}
+
+.cart-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-volume-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-flex > div {
+  margin: 5px;
+}
+
+.cart-volume-div > div {
+  margin: 5px;
+}
+
+.volume-btn {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.bin-div {
+  align-items: end;
+  justify-content: end;
+}
+
+.cart-opacity-div {
+  margin: auto;
+  max-width: 600px;
+  border-radius: 10px;
+  background-color: rgba(70, 70, 70, 0.75);
 }

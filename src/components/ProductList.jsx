@@ -57,7 +57,7 @@ function ProductList() {
         <FontAwesomeIcon className="search-icon" icon={faSearch} />
         <input
           className="search-bar"
-          type="search"
+          type="text"
           placeholder="Search..."
           onInput={handleInput}
         />

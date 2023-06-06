@@ -4,7 +4,34 @@
       "id": 1,
       "name": "user",
       "password": "password",
-      "orders": [],
+      "orders": [
+        {
+          "company": "Bun Drop",
+          "date": "6/6/2023 - 11:20",
+          "items": [
+            {
+              "id": 3,
+              "name": "Chick-a-Deluxe",
+              "volume": 1,
+              "price": 5.5
+            },
+            {
+              "id": 2,
+              "name": "Bacon & Cheese",
+              "volume": 2,
+              "price": 5.9
+            },
+            {
+              "id": 4,
+              "name": "Classic fries",
+              "volume": 1,
+              "price": 2.5
+            }
+          ],
+          "payment": "Debit Card",
+          "address": ",  0"
+        }
+      ],
       "favourites": [
         {
           "id": 6,

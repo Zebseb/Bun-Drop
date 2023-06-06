@@ -46,27 +46,35 @@ function LoginForm() {
         setMessage("Username or password is incorrect...");
       }
     } else {
-      if (user.name.length >= 3 && user.password.length >= 5) {
-        fetch("http://localhost:7001/users", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(user),
-        });
+      const isTakenUsername = users.find((u) => u.name === user.name);
 
-        setUser({
-          name: "",
-          password: "",
-          orders: [],
-          favourites: [],
-        });
-        setMessage(
-          "Thanks for signing up to Bun Drop! Please log in with your credentials."
-        );
-        setFormChoice(true);
-        getUsers();
+      if (!isTakenUsername) {
+        if (user.name.length >= 3 && user.password.length >= 5) {
+          fetch("http://localhost:7001/users", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(user),
+          });
+
+          setUser({
+            name: "",
+            password: "",
+            orders: [],
+            favourites: [],
+          });
+          setMessage(
+            "Thanks for signing up to Bun Drop! Please log in with your credentials."
+          );
+          setFormChoice(true);
+          getUsers();
+        } else {
+          setMessage(
+            "Your username have to contain at least 3 characters and the password at least 5 characters."
+          );
+        }
       } else {
         setMessage(
-          "Your username have to contain at least 3 characters and the password at least 5 characters."
+          "The username is already taken... Please choose another one!"
         );
       }
     }
@@ -90,28 +98,36 @@ function LoginForm() {
 
   if (logInSelected) {
     return (
-      <div>
+      <div className="opacity-div-login flex-body">
         <div className="flex-div">
           <h2 className="underline">Log In</h2>
           <h2 onClick={handleFormChoice}>Sign Up</h2>
         </div>
         <div>{message}</div>
         <form onSubmit={handleFormInput}>
-          <label htmlFor="name-input">Username</label>
-          <input
-            id="name-input"
-            type="text"
-            onChange={handleUsername}
-            value={user.name}
-          />
-          <label htmlFor="password-input">Password</label>
-          <input
-            id="password-input"
-            type="password"
-            onChange={handlePassword}
-            value={user.password}
-          />
-          <button className="complete-btn" type="submit">
+          <div>
+            <label htmlFor="name-input">Username</label>
+            <input
+              className="login-bar"
+              id="name-input"
+              type="text"
+              onChange={handleUsername}
+              value={user.name}
+            />
+          </div>
+          <div>
+            <label className="password-label" htmlFor="password-input">
+              Password
+            </label>
+            <input
+              className="login-bar"
+              id="password-input"
+              type="password"
+              onChange={handlePassword}
+              value={user.password}
+            />
+          </div>
+          <button className="login-btn" type="submit">
             Enter
           </button>
         </form>
@@ -119,28 +135,36 @@ function LoginForm() {
     );
   } else {
     return (
-      <div>
+      <div className="opacity-div-login flex-body">
         <div className="flex-div">
           <h2 onClick={handleFormChoice}>Log In</h2>
           <h2 className="underline">Sign Up</h2>
         </div>
         {message}
         <form onSubmit={handleFormInput}>
-          <label htmlFor="name-input">Username</label>
-          <input
-            id="name-input"
-            type="text"
-            onChange={handleUsername}
-            value={user.name}
-          />
-          <label htmlFor="password-input">Password</label>
-          <input
-            id="password-input"
-            type="password"
-            onChange={handlePassword}
-            value={user.password}
-          />
-          <button className="complete-btn" type="submit">
+          <div>
+            <label htmlFor="name-input">Username</label>
+            <input
+              className="login-bar"
+              id="name-input"
+              type="text"
+              onChange={handleUsername}
+              value={user.name}
+            />
+          </div>
+          <div>
+            <label className="password-label" htmlFor="password-input">
+              Password
+            </label>
+            <input
+              className="login-bar"
+              id="password-input"
+              type="password"
+              onChange={handlePassword}
+              value={user.password}
+            />
+          </div>
+          <button className="login-btn" type="submit">
             Register
           </button>
         </form>
