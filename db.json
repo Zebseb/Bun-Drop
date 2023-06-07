@@ -86,14 +86,6 @@
           "image": "./public/images/fries-1.png"
         },
         {
-          "id": 1,
-          "name": "McDog",
-          "description": "A master burger in the spirit of Kod McDog. Double beef patty ofcourse!",
-          "category": "Burger",
-          "price": 4.9,
-          "image": "./public/images/burger-3.png"
-        },
-        {
           "id": 7,
           "name": "Shake a la Cookie & Cream",
           "description": "A really refreshening milkshake. Chocolate, vanilla and chunky bits.",

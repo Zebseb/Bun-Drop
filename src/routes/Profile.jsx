@@ -45,6 +45,7 @@ function Profile() {
 
   function handleLogOut() {
     localStorage.removeItem("signedIn");
+    localStorage.removeItem("cartItem");
     navigate("/");
     location.reload();
   }
