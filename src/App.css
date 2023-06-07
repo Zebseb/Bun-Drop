@@ -579,7 +579,11 @@ h3 {
 
   .header-links {
     display: none;
-    margin-top: 10px;
+    margin-top: 5px;
+  }
+
+  .header-links > a {
+    margin: 7px 5px;
   }
 
   .header-icon {
@@ -609,6 +613,10 @@ h3 {
   .footer-container {
     justify-content: center;
     width: 100vw;
+  }
+
+  .footer-icons > a > li {
+    font-size: 20px;
   }
 
   .expand-div {
