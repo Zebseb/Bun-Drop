@@ -12,7 +12,7 @@
   position: absolute;
   left: 35%;
   right: 35%;
-  bottom: 40%;
+  bottom: 30%;
   top: 30%;
   text-align: center;
   margin: auto;
@@ -20,4 +20,12 @@
   border-color: black;
   background: rgba(0, 0, 0, 0.841);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+@media screen and (max-width: 600px) {
+  .popup-body {
+    left: 15%;
+    right: 15%;
+    bottom: 35%;
+  }
 }

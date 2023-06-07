@@ -102,22 +102,21 @@
           "image": "./public/images/chocolate-shake.jpg"
         },
         {
-          "id": 8,
-          "name": "Chocolate Oreo Shake",
-          "description": "The all time selling milkshake with chocolate sauce and oreo bits.",
-          "category": "Milkshakes",
-          "price": 4,
-          "image": "./public/images/milkshake-1.png"
-        },
-        {
-          "id": 6,
-          "name": "Chili cheese fries",
-          "description": "Our smokin' spicy fries with red chili, minced meat and red beans.",
+          "id": 5,
+          "name": "Loaded fries",
+          "description": "Fatty fries with extra red onion, garlic and spicy jalapeños.",
           "category": "Fries",
-          "price": 3.5,
-          "image": "./public/images/chili-cheese-fries-square-1.jpg"
+          "price": 2.9,
+          "image": "./public/images/chili-cheese-fries.jpg"
         }
       ]
+    },
+    {
+      "name": "zebbe",
+      "password": "zebbe123",
+      "orders": [],
+      "favourites": [],
+      "id": 2
     }
   ],
   "products": [
