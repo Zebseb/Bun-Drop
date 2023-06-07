@@ -102,13 +102,6 @@
           "image": "./public/images/chili-cheese-fries.jpg"
         }
       ]
-    },
-    {
-      "name": "zebbe",
-      "password": "zebbe123",
-      "orders": [],
-      "favourites": [],
-      "id": 2
     }
   ],
   "products": [

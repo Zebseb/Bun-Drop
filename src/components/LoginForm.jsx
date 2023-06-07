@@ -66,6 +66,9 @@ function LoginForm() {
           setMessage(
             "Thanks for signing up to Bun Drop! Please log in with your credentials."
           );
+          const errorMessage = document.querySelector("#error-msg");
+          errorMessage.classList.add("green-text");
+          console.log(errorMessage);
           setFormChoice(true);
           getUsers();
         } else {
@@ -90,6 +93,9 @@ function LoginForm() {
   }
 
   function handleFormChoice() {
+    setMessage("");
+    setUser({ ...user, name: "", password: "" });
+
     if (logInSelected) {
       setFormChoice(false);
     } else {
@@ -104,7 +110,7 @@ function LoginForm() {
           <h2 className="underline">Log In</h2>
           <h2 onClick={handleFormChoice}>Sign Up</h2>
         </div>
-        <div>{message}</div>
+        <p className="checkout-error">{message}</p>
         <form onSubmit={handleFormInput}>
           <div>
             <label htmlFor="name-input">Username</label>
@@ -141,7 +147,9 @@ function LoginForm() {
           <h2 onClick={handleFormChoice}>Log In</h2>
           <h2 className="underline">Sign Up</h2>
         </div>
-        {message}
+        <p id="error-msg" className="checkout-error">
+          {message}
+        </p>
         <form onSubmit={handleFormInput}>
           <div>
             <label htmlFor="name-input">Username</label>

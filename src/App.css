@@ -562,6 +562,10 @@ h3 {
   display: block;
 }
 
+.green-text {
+  color: rgb(120, 255, 129);
+}
+
 @media screen and (max-width: 600px) {
   .xl-header-div {
     visibility: hidden;
