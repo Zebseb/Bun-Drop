@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUser,
+  faCartShopping,
+  faBars,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [navbar, setNavbar] = useState(false);
 
   useEffect(() => {
     checkUser();
@@ -17,9 +22,25 @@ function Header() {
     }
   }
 
+  function toggleMenu() {
+    setNavbar(!navbar);
+  }
+
   return (
     <div className="flex-container">
-      <div>
+      <div className="sm-header-div">
+        <FontAwesomeIcon
+          className="menu-icon"
+          icon={faBars}
+          onClick={toggleMenu}
+        />
+        <div className={navbar ? "header-links expand-div" : "header-links"}>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
+        </div>
+      </div>
+      <div className="xl-header-div">
         <ul className="flex-div">
           <Link to="/">
             <li className="home-text margin-right">Home</li>
@@ -39,15 +60,18 @@ function Header() {
       </div>
       <div>
         <Link to="/cart">
-          <FontAwesomeIcon className="header-icon" icon={faCartShopping} />
+          <FontAwesomeIcon
+            className="cart-icon header-icon"
+            icon={faCartShopping}
+          />
         </Link>
         {isLoggedIn ? (
           <Link to="/profile">
-            <FontAwesomeIcon className="header-icon" icon={faUser} />
+            <FontAwesomeIcon className="user-icon header-icon" icon={faUser} />
           </Link>
         ) : (
           <Link to="/loginform">
-            <FontAwesomeIcon className="header-icon" icon={faUser} />
+            <FontAwesomeIcon className="user-icon header-icon" icon={faUser} />
           </Link>
         )}
       </div>

@@ -54,36 +54,70 @@
       ],
       "favourites": [
         {
-          "id": 6,
-          "name": "Chili cheese fries",
-          "description": "Our smokin' spicy fries with red chili, minced meat and red beans.",
-          "category": "Fries",
-          "price": 3.5,
-          "image": "./public/images/chili-cheese-fries-square-1.jpg"
-        },
-        {
           "id": 13,
           "name": "Bearnaise dip",
           "description": "The perfect partner to your fries!",
           "category": "Other",
           "price": 0.9,
           "image": "./public/images/bea-dip.png"
+        },
+        {
+          "id": 2,
+          "name": "Bacon & Cheese",
+          "description": "Juicy burger with crispy bacon and three slices of cheddar cheese.",
+          "category": "Burger",
+          "price": 5.9,
+          "image": "./public/images/burger-1.png"
+        },
+        {
+          "id": 3,
+          "name": "Chick-a-Deluxe",
+          "description": "Crispy burger with the finest of chicken fillets.",
+          "category": "Burger",
+          "price": 5.5,
+          "image": "./public/images/burger-2.png"
+        },
+        {
+          "id": 4,
+          "name": "Classic fries",
+          "description": "A real classic. Regular fries. Regular salt.",
+          "category": "Fries",
+          "price": 2.5,
+          "image": "./public/images/fries-1.png"
+        },
+        {
+          "id": 1,
+          "name": "McDog",
+          "description": "A master burger in the spirit of Kod McDog. Double beef patty ofcourse!",
+          "category": "Burger",
+          "price": 4.9,
+          "image": "./public/images/burger-3.png"
+        },
+        {
+          "id": 7,
+          "name": "Shake a la Cookie & Cream",
+          "description": "A really refreshening milkshake. Chocolate, vanilla and chunky bits.",
+          "category": "Milkshakes",
+          "price": 3.8,
+          "image": "./public/images/chocolate-shake.jpg"
+        },
+        {
+          "id": 8,
+          "name": "Chocolate Oreo Shake",
+          "description": "The all time selling milkshake with chocolate sauce and oreo bits.",
+          "category": "Milkshakes",
+          "price": 4,
+          "image": "./public/images/milkshake-1.png"
+        },
+        {
+          "id": 6,
+          "name": "Chili cheese fries",
+          "description": "Our smokin' spicy fries with red chili, minced meat and red beans.",
+          "category": "Fries",
+          "price": 3.5,
+          "image": "./public/images/chili-cheese-fries-square-1.jpg"
         }
       ]
-    },
-    {
-      "name": "Sebbish",
-      "password": "Sebbish",
-      "orders": [],
-      "favourites": [],
-      "id": 2
-    },
-    {
-      "name": "Bebbe",
-      "password": "Bebbe",
-      "orders": [],
-      "favourites": [],
-      "id": 3
     }
   ],
   "products": [

@@ -9,7 +9,7 @@ import {
 function Footer() {
   return (
     <div>
-      <div className="flex-container">
+      <div className="flex-container footer-container">
         <ul className="footer-icons">
           <a href="https://www.instagram.com/" target="_blank">
             <li className="margin-left icon-medium">
