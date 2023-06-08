@@ -75,7 +75,6 @@ function ProductCard({ product, foundUser, updateMenu }) {
 
     setTimeout(() => {
       addBtn.classList.remove("fade-in-text");
-      console.log(addBtn);
     }, 1000);
   }
 

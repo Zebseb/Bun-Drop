@@ -144,7 +144,6 @@ function Checkout() {
 
       dbUser.orders.push(checkOutOrder);
       localStorage.removeItem("cartItem");
-      console.log(checkOutOrder);
     }
 
     fetch(`http://localhost:7001/users/${user.id}`, {

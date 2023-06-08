@@ -395,7 +395,7 @@ h3 {
 .cart-flex {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
 
@@ -566,6 +566,21 @@ h3 {
   color: rgb(120, 255, 129);
 }
 
+.red-text {
+  color: rgb(255, 80, 80);
+}
+
+.cart-grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-grid-name {
+  width: 200px;
+}
+
 @media screen and (max-width: 600px) {
   .xl-header-div {
     visibility: hidden;
@@ -717,5 +732,10 @@ h3 {
 
   #popup-close-btn {
     margin-bottom: 10px;
+  }
+
+  .cart-grid-name {
+    width: 150px;
+    font-size: 14px;
   }
 }

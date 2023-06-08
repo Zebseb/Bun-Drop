@@ -39,7 +39,6 @@ function Profile() {
 
   function getUser() {
     const foundUser = users.find((u) => u.name === signedInUser.user);
-    console.log(foundUser);
     setUser(foundUser);
   }
 

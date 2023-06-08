@@ -25,8 +25,10 @@ function LoginForm() {
 
   function handleFormInput(e) {
     e.preventDefault();
+    let errorMessage = document.querySelector(".checkout-error");
+    errorMessage.classList.remove("green-text");
+
     if (logInSelected) {
-      console.log(users);
       const foundUser = users.find(
         (u) => u.name === user.name && u.password === user.password
       );
@@ -66,9 +68,9 @@ function LoginForm() {
           setMessage(
             "Thanks for signing up to Bun Drop! Please log in with your credentials."
           );
-          const errorMessage = document.querySelector("#error-msg");
+          errorMessage = document.querySelector("#error-msg");
           errorMessage.classList.add("green-text");
-          console.log(errorMessage);
+
           setFormChoice(true);
           getUsers();
         } else {

@@ -89,9 +89,11 @@ function CartItem(props) {
   }
 
   return (
-    <div className="cart-flex">
+    <div className="cart-grid-container">
       <div>
-        <h3>{product.name}</h3>
+        <div>
+          <h3 className="cart-grid-name">{product.name}</h3>
+        </div>
       </div>
       <div className="cart-volume-div">
         <div>
