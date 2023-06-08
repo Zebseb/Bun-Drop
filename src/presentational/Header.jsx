@@ -36,8 +36,8 @@ function Header() {
         />
         <div className={navbar ? "header-links expand-div" : "header-links"}>
           <Link to="/">Home</Link>
+          <Link to="/menu">Menu</Link>
           <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
         </div>
       </div>
       <div className="xl-header-div">
@@ -45,11 +45,11 @@ function Header() {
           <Link to="/">
             <li className="home-text margin-right">Home</li>
           </Link>
+          <Link to="/menu">
+            <li className="margin-right">Menu</li>
+          </Link>
           <Link to="/about">
             <li className="margin-right">About</li>
-          </Link>
-          <Link to="/contact">
-            <li className="margin-right">Contact</li>
           </Link>
         </ul>
       </div>

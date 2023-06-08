@@ -9,7 +9,6 @@ import Checkout from "./routes/Checkout";
 import Menu from "./routes/Menu";
 import Profile from "./routes/Profile";
 import About from "./routes/About";
-import Contact from "./routes/Contact";
 import LoginForm from "./components/LoginForm";
 
 function App() {
@@ -25,7 +24,6 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/loginform" element={<LoginForm />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
