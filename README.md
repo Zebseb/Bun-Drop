@@ -20,8 +20,3 @@ To run the app:
 
 ///
 Enjoy!
-
-<hr/>
-Slutligen kommer jag att försöka minska antalet fetch-calls framöver, dels för att göra appen snabbare och dels för att minska antalet rader kod. I några fall gör jag fetch calls från mina children istället för att göra det i en parent och skicka med de objekt/properties som behövs.
-
-För att summera projektet har jag lärt mig väldigt mycket och ökat min förståelse för React, men också insett hur mycket mer det finns att lära. Jag kommer ta med mig att arbeta mer med att bryta ner funktioner till flera stycken mindre och skapa fler komponenter för att göra koden lättläslig samt skapa en bra grund för min css redan från start så att den blir enklare att göra responsiv.
